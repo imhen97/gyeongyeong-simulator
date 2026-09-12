@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 원본 프로그램처럼 고밀도(dense) 정보 화면. 숫자는 고정폭 + 우측정렬. */
+:root {
+  color-scheme: light;
+}
+body {
+  @apply bg-neutral-100 text-neutral-900;
+  font-family: "Malgun Gothic", "맑은 고딕", sans-serif;
+}
+
+@layer components {
+  .panel {
+    @apply bg-white border border-neutral-400;
+  }
+  .ptitle {
+    @apply bg-neutral-200 px-2 py-1 text-[12px] font-bold border-b border-neutral-400;
+  }
+
+  /* 격자 표: 얇은 회색 실선, 촘촘한 셀 */
+  .grid-tbl {
+    @apply border-collapse;
+  }
+  .grid-tbl .cell {
+    @apply border border-neutral-300 px-1.5 py-0.5 align-middle;
+  }
+  .hd,
+  .hd-cell {
+    @apply bg-neutral-100 text-neutral-600 font-semibold text-center;
+  }
+  /* 라벨 셀 (연한 회색) */
+  .lbl {
+    @apply bg-neutral-50 text-neutral-700 whitespace-nowrap;
+  }
+
+  .num {
+    font-variant-numeric: tabular-nums;
+    @apply text-right;
+  }
+
+  /* 셀 안에 꽉 차는 입력칸 (테두리 없이) */
+  .cellinp {
+    @apply w-full bg-transparent px-0.5 py-0 focus:outline-none focus:bg-blue-50;
+  }
+  .inp {
+    @apply px-1 py-0.5 border border-neutral-400 rounded-sm bg-white focus:outline-none focus:ring-1 focus:ring-blue-400;
+  }
+
+  .btn {
+    @apply px-2 py-0.5 border border-neutral-400 rounded bg-neutral-50 hover:bg-neutral-100 text-[12px];
+  }
+  .btn-primary {
+    @apply border-blue-600 bg-blue-600 text-white hover:bg-blue-700;
+  }
+  .btn-xs {
+    @apply px-1.5 py-0.5 border border-neutral-400 rounded bg-white hover:bg-neutral-100 text-[11px] font-normal;
+  }
+}
